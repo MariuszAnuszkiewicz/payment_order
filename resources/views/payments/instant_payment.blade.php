@@ -3,5 +3,5 @@
 
 @endsection
 @section('content')
-
+    <instant-payment></instant-payment>
 @endsection

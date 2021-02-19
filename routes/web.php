@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group([
+    'prefix' => 'blue-media',
+], function () {
+    Route::get('index', [PaymentController::class, 'index']);
+    Route::post('init', [PaymentController::class, 'getInitUrl']);
+    Route::post('handle-itn', [PaymentController::class, 'handleItn']);
 });
